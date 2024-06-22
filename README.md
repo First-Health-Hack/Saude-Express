@@ -1,6 +1,9 @@
-# Saúde Express
+<h1>Saúde Express</h1>
 
-<p>(repositório oficial)</p>
+<p align="center">
+<img src=./imgs/proto.png width="50%"></br>
+(*imagem da documentação do repositório oficial)
+</p>
 
 *Alguns links para referência: 
 

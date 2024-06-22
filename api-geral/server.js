@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -6,7 +5,15 @@ const mongoose = require('mongoose');
 const app = express();
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost:27017/saudeexpress', { useNewUrlParser: true, useUnifiedTopology: true });
+const uri = "mongodb+srv://admin:qMRkdR2LdMZsCD1p@firsthealthhack.rafk9kw.mongodb.net/?retryWrites=true&w=majority&appName=FirstHealthHack";
+
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('Conectado ao MongoDB Atlas');
+  })
+  .catch((error) => {
+    console.error('Erro ao conectar ao MongoDB Atlas:', error);
+  });
 
 // Modelos de Dados
 const Triagem = mongoose.model('Triagem', new mongoose.Schema({

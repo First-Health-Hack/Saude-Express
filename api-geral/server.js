@@ -63,28 +63,67 @@ const classificarRisco = (sintomas, sinaisVitais, escalaDor, escalaGlasgow) => {
 
 // Endpoints
 app.post('/triagem', async (req, res) => {
-    const { sintomas, sinaisVitais, escalaDor, escalaGlasgow } = req.body;
+    try {
+        const { sintomas, sinaisVitais, escalaDor, escalaGlasgow } = req.body;
+        const { encaminhamento, tempoEspera } = classificarRisco(sintomas, sinaisVitais, escalaDor, escalaGlasgow);
 
-    const { encaminhamento, tempoEspera } = classificarRisco(sintomas, sinaisVitais, escalaDor, escalaGlasgow);
+        const novaTriagem = new Triagem({
+            sintomas, sinaisVitais, escalaDor, escalaGlasgow, encaminhamento, tempoEspera
+        });
 
-    const triagem = new Triagem({ sintomas, sinaisVitais, escalaDor, escalaGlasgow, encaminhamento, tempoEspera });
-    await triagem.save();
-
-    res.send({ encaminhamento, tempoEspera });
+        await novaTriagem.save();
+        res.json({ encaminhamento, tempoEspera });
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
 });
+
 app.get('/medicos/escala', (req, res) => {
-    // Dados simulados de médicos
-    const medicos = [
-        { nome: 'Dr. João', presente: true },
-        { nome: 'Dra. Maria', presente: false },
+    // Lógica para obter a escala de médicos
+    const escala = [
+        { nome: "Dr. João", presente: true },
+        { nome: "Dra. Maria", presente: false }
     ];
-    res.send(medicos);
+    res.json(escala);
 });
 
 app.get('/paciente/historico', async (req, res) => {
-    const { cpf } = req.query;
-    const historico = await Triagem.find({ cpf });
-    res.send(historico);
+    try {
+        const { cpf } = req.query;
+        const historico = await Triagem.find({ 'dados.cpf': cpf });
+        res.json(historico);
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+});
+
+app.post('/integracao/autoatendimento', async (req, res) => {
+    try {
+        const { token, dados } = req.body;
+        const novaEntrada = new AutoAtendimento({ token, dados });
+        await novaEntrada.save();
+
+        const { sintomas, sinaisVitais, escalaDor, escalaGlasgow } = dados;
+        const { encaminhamento, tempoEspera } = classificarRisco(sintomas, sinaisVitais, escalaDor, escalaGlasgow);
+
+        res.json({ status: "Dados recebidos com sucesso", triagem: { encaminhamento, tempoEspera } });
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+});
+
+app.post('/integracao/bot-atendimento', async (req, res) => {
+    try {
+        const { mensagem, cpf } = req.body;
+        const novaMensagem = new BotAtendimento({ mensagem, cpf });
+        await novaMensagem.save();
+
+        // Resposta mockada para o exemplo
+        const resposta = "Paciente reportou dor de cabeça e náusea";
+        res.json({ resposta });
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
 });
 
 

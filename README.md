@@ -175,7 +175,7 @@ Os dados, após serem processados pela API, retornam informando o tempo de esper
 
 <p align="center">
 <img src=./imgs/circuito.png width="50%"></br>
-(*Prototipação do circuito do token)
+(*Prototipação do circuito do token, apenas os pinos de energia foram levados em consideração, outros pinos foram assumidos que são GPO)
 </p>
 
 O token de autoatendimento possui os equipamentos para conferência de sinais vitais. Na tela do token, o paciente será instruído a inserir o dedo no sensor para medir a oxigenação, e os dados de temperatura, pressão e oxigenação serão capturados automaticamente pelos dispositivos integrados ao token (balança, termômetro, oxímetro e medidor de pressão). O paciente também inserirá manualmente os sintomas e os dados de identificação.

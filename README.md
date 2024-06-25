@@ -167,7 +167,7 @@ O servidor estará rodando na porta 3000. Você pode acessar a API através de h
 
 ## Documentação Detalhada
 
-Para a documentação completa da API, incluindo todos os detalhes de endpoints, parâmetros e exemplos de requisição/resposta, acesse [![Documentação.](https://github.com/First-Health-Hack/Saude-Express/tree/main/api-geral)](https://github.com/First-Health-Hack/Saude-Express/tree/main/api-geral)
+Para a documentação completa da API, incluindo todos os detalhes de endpoints, parâmetros e exemplos de requisição/resposta, acesse [Documentação.](https://github.com/First-Health-Hack/Saude-Express/tree/main/api-geral)
 
 ## Token
 O token de autoatendimento é construído com entradas de dados das medições e sintomas fornecidos pelo paciente. Além disso, possui uma conexão com a API.
@@ -181,10 +181,9 @@ Os dados, após serem processados pela API, retornam informando o tempo de esper
 O token de autoatendimento possui os equipamentos para conferência de sinais vitais. Na tela do token, o paciente será instruído a inserir o dedo no sensor para medir a oxigenação, e os dados de temperatura, pressão e oxigenação serão capturados automaticamente pelos dispositivos integrados ao token (balança, termômetro, oxímetro e medidor de pressão). O paciente também inserirá manualmente os sintomas e os dados de identificação.
 
 ## Prototipação
-[![Figma da tela do token.](https://www.figma.com/proto/41ZfMthdro3y2IVgwlsJHr/Sa%C3%BAde-Express?node-id=0-1&t=AGg0nrf3GKDzk54X-1)](https://www.figma.com/proto/41ZfMthdro3y2IVgwlsJHr/Sa%C3%BAde-Express?node-id=0-1&t=AGg0nrf3GKDzk54X-1)
+[Figma da tela do token.](https://www.figma.com/proto/41ZfMthdro3y2IVgwlsJHr/Sa%C3%BAde-Express?node-id=0-1&t=AGg0nrf3GKDzk54X-1)
 
-
-[![Slide deck.](https://www.canva.com/design/DAGIaxe-o2E/QggD0avpkliIKTQAYGU-jQ/view?utm_content=DAGIaxe-o2E&utm_campaign=designshare&utm_medium=link&utm_source=editor)](https://www.canva.com/design/DAGIaxe-o2E/QggD0avpkliIKTQAYGU-jQ/view?utm_content=DAGIaxe-o2E&utm_campaign=designshare&utm_medium=link&utm_source=editor)
+[Slide deck.](https://www.canva.com/design/DAGIaxe-o2E/QggD0avpkliIKTQAYGU-jQ/view?utm_content=DAGIaxe-o2E&utm_campaign=designshare&utm_medium=link&utm_source=editor)
 
 
 <p align="center">
@@ -205,9 +204,9 @@ A Saúde Express API foi desenvolvida para demonstrar o potencial de integraçã
 
 - Sonia Janara S Barros
 - Erick M.S.
-- kaique persch
-- Venelouis t.s. Palhano
-- evellyn de oliveira
+- Kaique Persch
+- Venelouis T.S. Palhano
+- Evellyn de Oliveira
 
 
 **Alguns links para referência:**
